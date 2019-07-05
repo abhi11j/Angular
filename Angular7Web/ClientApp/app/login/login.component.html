@@ -1,0 +1,32 @@
+
+<form>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label>Email address</label>
+            <input type="email" name="user_email" #user_email [(ngModel)]="Users.user_email" ng-class="form-control (user_email.value == '' ? ' is-invalid' : ' is-valid')" placeholder="Enter email">
+            <div *ngIf="user_email.value ==''" class="invalid-feedback">
+                User email is required!
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label>Password</label>
+            <input type="password" #user_password class="form-control is-invalid" placeholder="Password">
+            <div *ngIf="user_password.value == ''" class="invalid-feedback">
+                User password is required!
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">Remember me</label>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="loginUser(user_email.value,user_password.value)" type="submit" class="btn btn-secodary">Submit</button>
+
+</form>
