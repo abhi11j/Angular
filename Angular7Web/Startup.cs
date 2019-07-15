@@ -21,6 +21,8 @@ namespace Angular7Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddMvc()
                 .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore) //ignores self reference object 
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1); //validate api rules
@@ -56,7 +58,23 @@ namespace Angular7Web
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseMvc();
+            //app.UseCors(corsPolicyBuilder =>
+            //   corsPolicyBuilder.WithOrigins("http://localhost:4200")
+            //  .AllowAnyMethod()
+            //  .AllowAnyHeader()
+            //);
+
+            //app.UseCors(builder => builder
+            //.AllowAnyOrigin()
+            //.AllowAnyMethod()
+            //.AllowAnyHeader()
+            //.AllowCredentials());
+
+            app.UseCors(options =>
+                options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+
+            app.UseMvc();          
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseSpa(spa =>

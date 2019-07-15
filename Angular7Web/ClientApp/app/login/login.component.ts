@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
     title = 'Welcome!'
+    result: any = {};
 
     Users: any = {};
 
@@ -21,10 +22,14 @@ export class LoginComponent implements OnInit {
     }
 
     loginUser(user_email, user_password) {
-        console.log(user_email);
-        console.log(user_password);
+        console.log(user_email);    
 
-        this.us.loginUser(user_email, user_password);
+        //this.us.loginUser(user_email, user_password);
+
+            //.subscribe((data: any) => {
+            //    this.result = data;
+            //});
+
         this.router.navigate(['user'])
     }
 

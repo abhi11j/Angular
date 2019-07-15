@@ -16,6 +16,7 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this.us = us;
         this.title = 'Welcome!';
+        this.result = {};
         this.Users = {};
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -23,8 +24,10 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.loginUser = function (user_email, user_password) {
         console.log(user_email);
-        console.log(user_password);
-        this.us.loginUser(user_email, user_password);
+        //this.us.loginUser(user_email, user_password);
+        //.subscribe((data: any) => {
+        //    this.result = data;
+        //});
         this.router.navigate(['user']);
     };
     LoginComponent = __decorate([

@@ -1,5 +1,31 @@
-<p>
-  users works!
+<div class=" mb-3"></div>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-primary">Detail for all users!</li>
+</ul>
+<div class=" mb-3"></div>
 
-    
-</p>
+
+<table class="table table-hover" *ngIf="result.length>0 else loading">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of result">
+            <th scope="row">{{u.city_id}}</th>
+            <td>{{u.user_name}}</td>
+            <td>{{u.user_email}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #loading>
+    <div class="d-flex justify-content-center">
+        <div class="loader">Loading...</div>
+    </div>
+</ng-template>
+
+

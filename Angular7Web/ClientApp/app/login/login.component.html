@@ -1,9 +1,16 @@
 
-<form>
+<form>   
     <div class="form-row">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6">
             <label>Email address</label>
-            <input type="email" name="user_email" #user_email [(ngModel)]="Users.user_email" ng-class="form-control (user_email.value == '' ? ' is-invalid' : ' is-valid')" placeholder="Enter email">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="input-group col-md-6 mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="email" name="user_email" #user_email [(ngModel)]="Users.user_email" class="form-control {{user_email.value == '' ? 'is-invalid' : 'is-valid'}}" placeholder="Enter email">
             <div *ngIf="user_email.value ==''" class="invalid-feedback">
                 User email is required!
             </div>
@@ -12,7 +19,7 @@
     <div class="form-row">
         <div class="col-md-6 mb-3">
             <label>Password</label>
-            <input type="password" #user_password class="form-control is-invalid" placeholder="Password">
+            <input type="password" name="user_password" #user_password [(ngModel)]="Users.user_password" class="form-control {{user_password.value == '' ? 'is-invalid' : 'is-valid'}}" placeholder="Password">
             <div *ngIf="user_password.value == ''" class="invalid-feedback">
                 User password is required!
             </div>
@@ -27,6 +34,6 @@
         </div>
     </div>
 
-    <button (click)="loginUser(user_email.value,user_password.value)" type="submit" class="btn btn-secodary">Submit</button>
+    <button (click)="loginUser(user_email.value,user_password.value)" type="submit" [disabled]="user_email.value == '' || user_password.value == ''" class="btn btn-secodary">Submit</button>
 
 </form>

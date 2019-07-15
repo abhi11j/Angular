@@ -555,7 +555,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MyWorkItems\Angular7Web\Angular7Web\ClientApp\styles.css */"./styles.css");
+module.exports = __webpack_require__(/*! C:\MyWorkItems\Git\Angular\Angular7Web\ClientApp\styles.css */"./styles.css");
 
 
 /***/ })
